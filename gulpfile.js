@@ -8,17 +8,16 @@ const source = require('vinyl-source-stream');
 
 gulp.task('browserify', () => {
   return browserify({
-    entries: './assets/js/app.js',
+    entries: './src/js/app.js',
     debug: true,
   }).transform(babelify, {presets: "es2015"})
     .bundle()
     .pipe(source('./bundle.js'))
-    .pipe(gulp.dest('./assets'));
+    .pipe(gulp.dest('./src'));
 });
 
 gulp.task('default', ['browserify'], () => {
   server.run(['index.js']);
-
-  gulp.watch('./assets/js/**/*.js', ['browserify']);
+  gulp.watch('./src/js/**/*', ['browserify']);
   gulp.watch('./index.js', server.run);
 });

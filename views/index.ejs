@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <title>ovimpics - like olympics but with vim</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="/src/css/docs.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/src/css/codemirror.css">
+  <link rel="stylesheet" href="/src/css/solarized.css">
+  <link rel="stylesheet" type="text/css" href="src/css/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <form action>
+      <textarea id="code" name="code"><%- code %></textarea>
+    </form>
+    <div class='terminal-green'>key log: <span class="white" id="key-logger">empty</span></div>
+    <div class='terminal-green'># of commands: <span class="white" id="key-count">0</span></div>
+    <div class='terminal-green'>timer: <span class="white" id="clock">0</span></div>
+  </div>
+  <script src="/src/bundle.js"></script>
+</body>
+</html>

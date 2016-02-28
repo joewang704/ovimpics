@@ -25,11 +25,7 @@ const editor = CodeMirror.fromTextArea(editorContainer, {
   resetSelectionOnContextMenu: false,
 });
 
-request
-  .get('/getCode')
-  .end((err, res) => {
-    startGame(res.text);
-  });
+startGame(editorContainer.innerHTML);
 
 function endGame() {
   timer.endTimer();
@@ -39,8 +35,8 @@ function endGame() {
 function startGame(text) {
   const lines = text.split('\n');
   const destinationLine = Math.floor(Math.random()*lines.length);
-  const destinationStartChar = Math.floor(Math.random()*lines[destinationLine].length);
-  const destinationEndChar = destinationStartChar + 5;
+  const destinationStartChar = Math.floor(Math.random()*lines[destinationLine].length + 1);
+  const destinationEndChar = destinationStartChar + Math.floor(Math.random()*5 + 1);
   editor.setValue(text);
   const winRange = editor.markText({line: destinationLine, ch: destinationStartChar},
       {line: destinationLine, ch: destinationEndChar}, {className: "styled-background"});
